@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hospital System</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+</head>
+<body>
+
+<div class="container">
+  <h1><i class="fas fa-hospital-alt"></i> Hospital Appointment System</h1>
+
+  <div class="status-message" id="status"></div>
+
+  <div class="card-grid">
+    <!-- Add Patient -->
+    <div class="card">
+      <h2><i class="fas fa-user-plus"></i> Add Patient</h2>
+      <div class="form-group">
+        <label for="pname">Full Name</label>
+        <input id="pname" placeholder="John Doe" required>
+      </div>
+      <div class="form-group">
+        <label for="pphone">Phone Number</label>
+        <input id="pphone" placeholder="(555) 123-4567" required>
+      </div>
+      <button class="btn-primary" onclick="addPatient()">
+        <i class="fas fa-plus-circle"></i> Add Patient
+      </button>
+    </div>
+
+    <!-- Add Doctor -->
+    <div class="card">
+      <h2><i class="fas fa-stethoscope"></i> Add Doctor</h2>
+      <div class="form-group">
+        <label for="dname">Doctor Name</label>
+        <input id="dname" placeholder="Dr. Smith" required>
+      </div>
+      <div class="form-group">
+        <label for="dspec">Specialization</label>
+        <input id="dspec" placeholder="Cardiology" required>
+      </div>
+      <button class="btn-primary" onclick="addDoctor()">
+        <i class="fas fa-user-md"></i> Add Doctor
+      </button>
+    </div>
+
+    <!-- Appointment -->
+    <div class="card card-wide">
+      <h2><i class="fas fa-calendar-check"></i> Book Appointment</h2>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="pid">Patient ID</label>
+          <input id="pid" placeholder="Enter ID" type="number" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="did">Doctor ID</label>
+          <input id="did" placeholder="Enter ID" type="number" min="1" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" id="date" required>
+        </div>
+        <div class="form-group">
+          <label for="time">Time</label>
+          <input type="time" id="time" required>
+        </div>
+      </div>
+      <button class="btn-success" onclick="addAppointment()">
+        <i class="fas fa-book-medical"></i> Book Appointment
+      </button>
+    </div>
+  </div>
+
+  <!-- View Section -->
+  <div class="card">
+    <h2><i class="fas fa-clipboard-list"></i> Data Overview</h2>
+    
+    <div class="stats">
+      <div class="stat-box">
+        <h3>Patients</h3>
+        <p id="patient-count">0</p>
+        <button class="btn-info" onclick="loadPatients()">
+          <i class="fas fa-eye"></i> View All
+        </button>
+      </div>
+      <div class="stat-box">
+        <h3>Doctors</h3>
+        <p id="doctor-count">0</p>
+        <button class="btn-info" onclick="loadDoctors()">
+          <i class="fas fa-eye"></i> View All
+        </button>
+      </div>
+      <div class="stat-box">
+        <h3>Appointments</h3>
+        <p id="appointment-count">0</p>
+        <button class="btn-info" onclick="loadAppointments()">
+          <i class="fas fa-eye"></i> View All
+        </button>
+      </div>
+    </div>
+
+    <div class="data-section">
+      <h3><i class="fas fa-users"></i> Patient List</h3>
+      <ul id="patients" class="data-list"></ul>
+      
+      <h3><i class="fas fa-user-md"></i> Doctor List</h3>
+      <ul id="doctors" class="data-list"></ul>
+      
+      <h3><i class="fas fa-calendar-alt"></i> Appointment Schedule</h3>
+      <ul id="appointments" class="data-list"></ul>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
